@@ -10,5 +10,5 @@ contract("Variable", (accounts) => {
         const changed_num = await Instance.get();
         assert.equal(changed_num, 100, "the changed value must be 100??");
         console.log("I set the num value just like this: ", changed_num);
-    })
+    });
 });
