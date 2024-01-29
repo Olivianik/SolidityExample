@@ -6,7 +6,7 @@ contract Array {
     string[] public strArray1 = ['akai', 'siroi', 'kuroi'];
     string[5] public strFixedArray;
 
-    function getArrayMember(uint index) public view returns(string) {
+    function getArrayMember(uint index) public view returns(string memory) {
         return strArray1[index];
     }
 
@@ -14,7 +14,7 @@ contract Array {
         return strArray;
     }
 
-    function push(string _str) public {
+    function push(string calldata _str) public {
         strArray.push(_str);
     }
 
@@ -22,11 +22,11 @@ contract Array {
         strArray.pop();
     }
 
-    function getLength() public {
+    function getLength() public view returns(uint){
         return strArray.length;
     }
 
     function removeCertainMember(uint index) public {
-        strArray.remove(index);
+        delete strArray[index];
     }
 }
