@@ -3,15 +3,16 @@ pragma solidity ^0.8.19;
 
 contract Variables {
     // state variables that declared outside the function
-    string public str = "this is string.";
-    uint8 public num =  255;
+    uint public num =  255;
 
-    function akai() public {
-        // local variavles that declared inside the function
-        int8 local = -4;
+    // set the state variable's value, this is transaction
+    function set(uint _num) public {
+        // set the state variable
+        num = _num;
+    }
 
-        // some global functions
-        uint timestamp = block.timestamp; // current block time stamp
-        address sender = msg.sender; // address of the caller
+    // get the state variable without sending transaction
+    function get() public view returns(uint) {
+        return num;
     }
 }
